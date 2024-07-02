@@ -58,4 +58,6 @@ mp.events.add("playerWeaponChange", (player) => {
 
 mp.events.add('playerJoin', (player) => {
     player.call('createPlayerHud', [player.name]);
+
+    player.call("openLogin", [player.name]);
 });

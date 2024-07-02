@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    user-select: none;
+    background: black;
+    color: aliceblue;
+}
+
+#background{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: .4;
+}
+
+.registerbody{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    gap: 1%;
+}
+.registerbody h1{
+    font-size: 2vw;
+}
+.registerbody p{
+    font-size: 1.01vw;
+}
+
+.registerbody .item{
+    display: flex;    
+    height: 5.3%;
+    align-items: center;
+    width: 30%;
+}
+.registerbody .item label {
+    position: absolute;
+    font-size: 1.3vw;
+    color: rgba(177, 177, 177, 0.681);
+    padding: 0 2%;
+    pointer-events: none;
+    transition: .5s;
+    margin-left: -1.4%;
+
+}
+
+.registerbody .item input {
+    height: 100%;
+    width: 100%;
+    font-size: 16px;
+    color: #fff;
+    padding: 0 15px;
+    border: 1.3px solid rgb(137, 137, 137);
+    background: transparent;
+    backdrop-filter: blur(25px);
+    outline: none;
+    border-radius: 5px;
+}
+
+.registerbody .item input:focus~label,
+.registerbody .item input:valid~label {
+    margin-bottom: 1.8%;
+    margin-left: -1.4%;
+    font-size: .8vw;
+}
+
+.registerbody button{
+    display: flex;    
+    height: 5.3%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 30%;
+    font-size: 1.4vw;
+    color: #fff;
+    padding: 0 15px;
+    border: 1.3px solid rgb(137, 137, 137);
+    background: transparent;
+    backdrop-filter: blur(25px);
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.registerbody button:hover{
+    background-color: white;
+    color: black;
+}

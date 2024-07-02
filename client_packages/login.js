@@ -1,4 +1,4 @@
-var loginBrowser = mp.browsers.new("package://login/index.html");
+    // mp.events.call("openLogin", "edward");
 
 mp.events.add("loginDataToServer", (user, pass, state) => {
     mp.events.callRemote("sendDataToServer", user, pass, state);

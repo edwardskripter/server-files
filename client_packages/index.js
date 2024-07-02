@@ -1,4 +1,5 @@
 require('login.js');
+require('./loginsys/login/app.js');
 require('./bank/assets/js/app');
 require('./base/blips.js');
 require('./admin/noclip.js');
