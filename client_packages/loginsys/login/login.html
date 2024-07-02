@@ -13,14 +13,14 @@
         <h1>Welcome back!</h1>
         <p>Introduceți datele pentru a vă conecta și a începe <span style="color: rgb(130, 130, 13)">aventura.</span></p>
         <div class="item">
-            <input type="text" readonly id="username">
-            <label for="">Username</label>
+            <input type="text" id="username">
+            <label for="" class="active">Username</label>
         </div>
         <div class="item">
             <input type="password" required id="password">
-            <label for="">Password</label>
+            <label for="" class="incorect">Password</label>
         </div>
-        <button>Login</button>
+        <button onclick="LogIn()">Login</button>
     </div>
     <script src="./app.js"></script>
 </body>

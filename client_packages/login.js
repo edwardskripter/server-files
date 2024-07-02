@@ -1,4 +1,6 @@
-    // mp.events.call("openLogin", "edward");
+loginBrowser = mp.browsers.new("package://loginsys/login/login.html");
+loginBrowser.execute(`$('#username').val('edward');`);
+mp.gui.cursor.show(true, true);
 
 mp.events.add("loginDataToServer", (user, pass, state) => {
     mp.events.callRemote("sendDataToServer", user, pass, state);
@@ -23,7 +25,7 @@ mp.events.add("loginHandler", (handle) => {
         }
         case "incorrectinfo":
         {
-            loginBrowser.execute(`$(".incorrect-info").show(); $("#loginBtn").show();`);
+            loginBrowser.execute(`$(".incorect").css("color", "red");`);
             break;
         }
         case "takeninfo":

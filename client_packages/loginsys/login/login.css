@@ -5,6 +5,7 @@
     margin: 0;
     box-sizing: border-box;
     font-family: "Montserrat", sans-serif;
+    user-select: none;
 }
 
 body{
@@ -46,15 +47,14 @@ body{
     align-items: center;
     width: 30%;
 }
+
 .loginbody .item label {
     position: absolute;
-    font-size: 1.3vw;
     color: rgba(177, 177, 177, 0.681);
     padding: 0 2%;
     pointer-events: none;
     transition: .5s;
     margin-left: -1.4%;
-
 }
 
 .loginbody .item input {
@@ -68,13 +68,20 @@ body{
     backdrop-filter: blur(25px);
     outline: none;
     border-radius: 5px;
+    padding-top: 2%;
+}
+
+.active{
+    margin-bottom: 1.8%;
+    margin-left: -1.4%;
+    font-size: .7vw;
 }
 
 .loginbody .item input:focus~label,
 .loginbody .item input:valid~label {
     margin-bottom: 1.8%;
     margin-left: -1.4%;
-    font-size: .8vw;
+    font-size: .7vw;
 }
 
 .loginbody button{
@@ -93,7 +100,7 @@ body{
     outline: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: 0.5s;
+    transition: .5s;
 }
 .loginbody button:hover{
     background-color: white;
