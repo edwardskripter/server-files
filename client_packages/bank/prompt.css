@@ -1,0 +1,227 @@
+.DepoziteazaContainer {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    background: linear-gradient(-120deg, rgba(1, 4, 10, 0.719), #fea707);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    backdrop-filter: blur(10px);
+}
+
+.DepoziteazaContainer > .title {
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 1.3vw;
+}
+
+.DepoziteazaContainer > .desc {
+    color: rgba(180, 180, 180, 0.658);
+    text-align: center;
+    font-weight: 400;
+    font-size: .65vw;
+}
+
+.DepoziteazaContainer > input {
+    border: none;
+    outline: none;
+    background-color: rgba(0, 0, 0, 0.485);
+    /* width: 5vw; */
+    height: 2.4vw;
+    width: 14vw;
+    color: white;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    border-radius: .7vw;
+    margin-top: .5vw;
+}
+
+.DepoziteazaContainer > .buttons {
+    display: flex;
+    flex-direction: row;
+    margin-top: 1vw;
+    gap: 1vw;
+}
+
+.buttons > .btn {
+    height: fit-content;
+    width: fit-content;
+    color: white;
+    font-weight: 400;
+    text-transform: uppercase;
+    padding: .5vw;
+    font-size: .7vw;
+    border-radius: .55vw;
+    letter-spacing: .1vw;
+    transition: .5s;
+    background-color: rgba(0, 0, 0, 0.485);
+}
+
+.buttons > .btn:hover {
+    opacity: .6;
+}
+
+.ExtrageContainer {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    background: linear-gradient(-120deg, rgba(1, 4, 10, 0.719), #fea707);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    backdrop-filter: blur(10px);
+}
+
+.ExtrageContainer > .title {
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 1.3vw;
+}
+
+.ExtrageContainer > .desc {
+    color: rgba(180, 180, 180, 0.658);
+    text-align: center;
+    font-weight: 400;
+    font-size: .65vw;
+}
+
+.ExtrageContainer > input {
+    border: none;
+    outline: none;
+    background-color: rgba(0, 0, 0, 0.485);
+    /* width: 5vw; */
+    height: 2.4vw;
+    width: 14vw;
+    color: white;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    border-radius: .7vw;
+    margin-top: .5vw;
+}
+
+.ExtrageContainer > .buttons {
+    display: flex;
+    flex-direction: row;
+    margin-top: 1vw;
+    gap: 1vw;
+}
+
+.buttons > .btn {
+    height: fit-content;
+    width: fit-content;
+    color: white;
+    font-weight: 400;
+    text-transform: uppercase;
+    padding: .5vw;
+    font-size: .7vw;
+    border-radius: .55vw;
+    letter-spacing: .1vw;
+    transition: .5s;
+    background-color: rgba(0, 0, 0, 0.485);
+}
+
+.buttons > .btn:hover {
+    opacity: .6;
+}
+
+.TransferContainer {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    background: linear-gradient(-120deg, rgba(1, 4, 10, 0.719), #fea707);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    backdrop-filter: blur(10px);
+}
+
+.TransferContainer > .title {
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 1.3vw;
+}
+
+.TransferContainer > .desc {
+    color: rgba(180, 180, 180, 0.658);
+    text-align: center;
+    font-weight: 400;
+    font-size: .65vw;
+}
+
+.TransferContainer > input {
+    border: none;
+    outline: none;
+    background-color: rgba(0, 0, 0, 0.485);
+    /* width: 5vw; */
+    height: 2.4vw;
+    width: 14vw;
+    color: white;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    border-radius: .7vw;
+    margin-top: .5vw;
+}
+
+.TransferContainer > .buttons {
+    display: flex;
+    flex-direction: row;
+    margin-top: 1vw;
+    gap: 1vw;
+}
+
+.buttons > .btn {
+    height: fit-content;
+    width: fit-content;
+    color: white;
+    font-weight: 400;
+    text-transform: uppercase;
+    padding: .5vw;
+    font-size: .7vw;
+    border-radius: .55vw;
+    letter-spacing: .1vw;
+    transition: .5s;
+    background-color: rgba(0, 0, 0, 0.485);
+}
+
+.buttons > .btn:hover {
+    opacity: .6;
+}
+
+#container .esc {
+    position: absolute;
+    /* left: 2vw; */
+    bottom: 2vh;
+    display: flex;
+    align-items: center;
+    gap: .5vw;
+  }
+  
+#container > .esc > p:nth-child(1) {
+    width: 7.55vh;
+    height: 4.1vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: .2vh;
+    background: rgba(0,0,0, 0.1);
+    text-transform: uppercase;
+  }
+  
+#container > .esc > p:nth-child(2) {
+    opacity: .6;
+  }

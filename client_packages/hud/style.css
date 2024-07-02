@@ -1,0 +1,297 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    user-select: none;
+    overflow: hidden;
+}
+
+.wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+}
+
+.wrapper .right{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+}
+
+.wrapper .left{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+    padding: 1%;
+}
+
+.wrapper .left .playerHud{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 100%;
+    height: 30%;
+    gap: 10%;
+}
+
+.wrapper .left .playerHud .main{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: row;
+    width: 100%;
+    height: 30%;
+}
+
+.wrapper .left .playerHud .main .server{
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0% 2%;
+    width: 35%;
+    height: 100%;
+}
+
+.wrapper .left .playerHud .main .server::after{
+    content: "";
+    position: absolute;
+    right:0;
+    width: .15vw;
+    height: 70%;
+    background: rgb(255,200,0);
+}
+
+.wrapper .left .playerHud .main .server h1{
+    font-size: 2vw;
+    color: white;
+    text-shadow: 0vw 0vw .5vw white;
+    font-weight: 600;
+}
+
+.wrapper .left .playerHud p{
+    color: rgb(255,255,255,.6);
+    font-size: .8vw;
+    font-weight: 300;
+}
+
+.wrapper .left .playerHud .online{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15%;
+    height: 100%;
+}
+
+.wrapper .left .playerHud .online p{
+    position: relative;
+    width: 100%;
+    text-align: center;
+    color: rgb(255,255,255,.6);
+    margin-bottom: 10%;
+    font-size: .8vw;
+    font-weight: 300;
+}
+
+.wrapper .left .playerHud .online p i{
+    margin-right: 3%;
+}
+
+.wrapper .left .playerHud .moneyPart{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 100%;
+    height: 50%;
+}
+
+.wrapper .left .playerHud .moneyPart .cash{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: row;
+    width: 100%;
+    height: 40%;
+    padding: 0% 2%;
+    gap: 2%;
+}
+
+.wrapper .left .playerHud .moneyPart .cash::after{
+    content: "";
+    position: absolute;
+    right: 0;
+    width: .15vw;
+    height: 70%;
+    background: rgba(255, 200, 0);
+}
+
+.wrapper .left .playerHud .moneyPart .cash i{
+    font-size: 1.6vw;
+    text-shadow: 0vw 0vw .5vw rgba(255, 200, 0);
+    color: rgb(255,200,0);
+}
+
+.wrapper .left .playerHud .moneyPart .cash p{
+    font-size: 1.2vw;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 0vw 0vw .5vw rgba(255, 255, 255, 0.8);
+}
+
+.wrapper .left .playerHud .moneyPart .bank{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: row;
+    width: 100%;
+    height: 30%;
+    padding: 0% 2%;
+    gap: 2%;
+}
+
+.wrapper .left .playerHud .moneyPart .bank::after{
+    content: "";
+    position: absolute;
+    right: 0;
+    width: .15vw;
+    height: 70%;
+    background: rgba(255, 255, 255,.2);
+}
+
+.wrapper .left .playerHud .moneyPart .bank i{
+    font-size: 1vw;
+    color: rgb(255,255,255,.6);
+}
+
+.wrapper .left .playerHud .moneyPart .bank p{
+    font-size: .8vw;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.wrapper .left .speedometer{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    flex-direction: column;
+    width: 100%;
+    height: 40%;
+}
+
+.wrapper .left .speedometer .speedBar{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    width: 35%;
+    height: 25%;
+    gap: 2%;
+}
+
+.wrapper .left .speedometer .speedBar .bar{
+    width: 1.2vw;
+    rotate: 10deg;
+    height: 80%;
+    border-radius: .6vw;
+    background: linear-gradient(to bottom,rgba(255, 255, 255, 0.25),rgba(255, 255, 255, 0.15),rgba(255, 255, 255, 0.25));
+}
+
+.wrapper .left .speedometer .vehicleData{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    width: 35%;
+    height: 30%;
+}
+
+.wrapper .left .speedometer .vehicleData .speed{
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    width: 50%;
+    height: 100%;
+    gap: 5%;
+}
+
+.wrapper .left .speedometer .vehicleData .speed::after{
+    content: "";
+    position: absolute;
+    width: .15vw;
+    height: 40%;
+    right: 0;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.wrapper .left .speedometer .vehicleData .speed h1{
+    font-size: 2.6vw;
+    font-weight: 600;
+    color: rgb(255,200,0);
+    margin-bottom: -5%;
+}
+
+.wrapper .left .speedometer .vehicleData .speed h1 span{
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.wrapper .left .speedometer .vehicleData .speed p{
+    color: rgba(255, 255, 255, 0.2);
+    font-size: .8vw;
+    font-weight: 600;
+}
+
+.wrapper .left .speedometer .vehicleData .gear{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    flex-direction: row;
+    width: 40%;
+    height: 100%;
+    gap: 5%;
+}
+
+.wrapper .left .speedometer .vehicleData .gear h1{
+    font-size: 2.6vw;
+    font-weight: 600;
+    color: rgb(255,200,0);
+    margin-bottom: -5%;
+}
+
+.wrapper .left .speedometer .vehicleData .gear p{
+    color: rgba(255, 255, 255, 0.2);
+    font-size: .8vw;
+    font-weight: 600;
+}
+
+.wrapper .right .status{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 30%;
+    background: red;
+}
