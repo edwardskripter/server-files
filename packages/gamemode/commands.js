@@ -268,4 +268,4 @@ mp.events.add("TransferBank", ( player, amm, targetName ) => {
 
 mp.events.addCommand('q', ( player ) => {
     player.kick('You left the server');
-});
+});     
