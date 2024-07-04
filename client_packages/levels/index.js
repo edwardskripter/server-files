@@ -1,14 +1,3 @@
-var ProgressBar = require('progressbar.js');
-var bar = new ProgressBar.Line("#line", {
-    strokeWidth: 4,
-    easing: 'easeInOut',
-    duration: 1400,
-    color: '#FFEA82',
-    trailColor: '#eee',
-    trailWidth: 100,
-    svgStyle: {width: '100%', height: '100%', borderRadius: '10px'}
-});
-
 let lvlbar;
 
 mp.events.add("updateBar", ( level, xp ) => {
@@ -17,9 +6,26 @@ mp.events.add("updateBar", ( level, xp ) => {
         lvlbar = mp.browsers.new("package://levels/index.html");
     }
 
-    xp = (300*(level-1)/2)+xp;
+    function calculateXP(level, initialXP) {
+        if (level === 1) {
+            return 100;
+        } else {
+            return calculateXP(level - 1, initialXP) + (50 + 0.1 * calculateXP(level - 1, initialXP));
+        }
+    }
 
-    barHTML.execute(`$("#level).text(${level});`)
-    barHTML.execute(`$("#xp).text(${xp});`)
-    bar.animate(`0.${xp}`);
+    next_level_xp = calculateXP(level + 1, xp)
+    current_level_xp = calculateXP(level, xp)
+
+    parity_per_xp = 100 / (next_level_xp - current_level_xp)
+
+    lvlbar.execute(`$("#level").text(${level});`)
+    lvlbar.execute(`$("#xp").text(${xp});`)    
+
+    let progressBarHTML = `$("#progressbar").progressbar({
+        value: Math.floor((${xp} - ${current_level_xp}) * ${parity_per_xp})
+    });`
+
+    lvlbar.execute(progressBarHTML)
+
 }); 

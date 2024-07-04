@@ -72,7 +72,7 @@ mp.events.addCommand("clearchat", (player) => {
 });
 
 mp.events.addCommand("veh", (player, arg) => {
-    if (player.data.admin < 0) {
+    if (player.data.admin >= 1) {
          if (!arg) {
             player.outputChatBox("/veh [name]");
             return;
@@ -274,4 +274,39 @@ mp.events.add("TransferBank", ( player, amm, targetName ) => {
 
 mp.events.addCommand('q', ( player ) => {
     player.kick('You left the server');
-});     
+});
+
+mp.events.addCommand('buylevel', (player) => {
+    function calculateXP(level, initialXP) {
+        if (level === 1) {
+            return 100;
+        } else {
+            return calculateXP(level - 1, initialXP) + (50 + 0.1 * calculateXP(level - 1, initialXP));
+        }
+    }
+    if (player.xp >= Math.floor(calculateXP(player.level + 1, player.xp))) {
+        gm.mysql.handle.query('UPDATE `accounts` SET level = ? WHERE username = ?', [player.level + 1, player.name], function(err, res) {
+            if (!err) {
+                player.level += 1;
+                player.call("updateBar", [player.level, player.xp]);
+                player.outputChatBox(`You upgraded to level ${player.level}!!`);
+            }
+        })
+    } else {
+        player.outputChatBox(`You need ${Math.floor(calculateXP(player.level + 1, player.xp))} XP to upgrade`);
+    }
+})
+
+mp.events.addCommand('setxp', ( player, xp) => {
+    if (player.data.admin >= 3) {
+        gm.mysql.handle.query('UPDATE `accounts` SET xp = ? WHERE username = ?', [xp, player.name], function(err, res) {
+            if (!err) {
+                player.xp = xp;
+                player.call("updateBar", [player.level, player.xp]);
+                player.outputChatBox(`You set XP to ${xp}`);
+            }
+        })
+    } else {
+        player.outputChatBox('You need at least admin level 3');
+    }
+})

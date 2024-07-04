@@ -5,15 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/progressbar.js/1.1.0/progressbar.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <style>
+        #progressbar {
+            width: 100%;
+            height: 10%;
+            border-radius: 10px;
+        }
+        .ui-progressbar {
+            background-color: #eee;
+        }
+        .ui-progressbar-value {
+            background-color: #FFEA82;
+            height: 100%;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <div class="wrap">
             <h1>LEVEL <span id="level">2</span></h1>
             <h2><span id="xp">300</span>XP</h2>
-            <div id="line"></div>
+            <div id="progressbar"></div>
         </div>
     </div>
         <script src="./index.js"></script>

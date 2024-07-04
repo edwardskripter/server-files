@@ -36,6 +36,7 @@ module.exports =
                     player.skin = playerData.skin;
                     player.loggedInAs = playerData.username;
                     player.call("updateHud", [player.name, mp.players.length, player.data.money, player.data.bankmoney]);
+                    console.log(player.level, player.xp);
                     player.call("updateBar", [player.level, player.xp]);
                     player.model = mp.joaat(player.skin);
                 });
