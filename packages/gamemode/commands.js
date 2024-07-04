@@ -175,8 +175,23 @@ mp.events.addCommand('kill', (player, _, targetName) => {
 });
 
 mp.events.addCommand("bank", ( player ) => {
-    console.log(player.data.money, player.data.bankmoney, player.name);
-    player.call("openBank", [ player.data.money, player.data.bankmoney, player.name]);
+    let bank_transactions = []
+    let select_query = `SELECT * FROM bank_transactions WHERE from_player = '${player.name}'`
+    gm.mysql.handle.query(select_query, function (err, res) {
+        console.log(err, res)
+        if (!err) {
+            res.forEach(row => {
+                bank_transactions.push({
+                    from_player: row.from_player,
+                    to_player: row.to_player,
+                    amount: row.amount,
+                    timestamp: row.timestamp
+                });
+            });
+        }
+        console.log(player.data.money, player.data.bankmoney, player.name, bank_transactions);
+        player.call("openBank", [ player.data.money, player.data.bankmoney, player.name, bank_transactions]);
+    })
 });
 
 mp.events.add("depositBank", ( player, amm ) => {
@@ -193,6 +208,7 @@ mp.events.add("depositBank", ( player, amm ) => {
             gm.mysql.handle.query('UPDATE `accounts` SET BankMoney = ? WHERE username = ?', [player.data.bankmoney, player.name], function(err, res){
                 if(!err){
                     player.call("updateHud", [player.name, mp.players.length, player.data.money, player.data.bankmoney]);
+                    gm.mysql.handle.query(`INSERT INTO bank_transactions (from_player, to_player, amount) VALUES ('${player.name}', 'deposit', ${amm});`, [player.data.bankmoney, player.name]);
                 }
             });
         }
@@ -213,6 +229,7 @@ mp.events.add("extrageBank", ( player, amm ) => {
             gm.mysql.handle.query('UPDATE `accounts` SET BankMoney = ? WHERE username = ?', [player.data.bankmoney, player.name], function(err, res){
                 if(!err){
                     player.call("updateHud", [player.name, mp.players.length, player.data.money, player.data.bankmoney]);
+                    gm.mysql.handle.query(`INSERT INTO bank_transactions (from_player, to_player, amount) VALUES ('${player.name}', 'extrage', ${amm});`, [player.data.bankmoney, player.name]);
                 }
             });
         }
@@ -226,22 +243,29 @@ mp.events.add("TransferBank", ( player, amm, targetName ) => {
         return;
     }
     
-    if (getPlayerByName(targetName)) {
+    let target_player = getPlayerByName(targetName)
+
+    if (target_player) {
         player.data.bankmoney = player.data.bankmoney - amm;
-        getPlayerByName(targetName).data.bankmoney = getPlayerByName(targetName).data.bankmoney + amm;
+        target_player.data.bankmoney = target_player.data.bankmoney + amm;
 
         gm.mysql.handle.query('UPDATE `accounts` SET BankMoney = ? WHERE username = ?', [player.data.bankmoney, player.name], function(err, res){
             if(!err){
                 gm.mysql.handle.query('UPDATE `accounts` SET BankMoney = ? WHERE username = ?', [player.data.bankmoney, targetName], function(err, res){
                     if(!err){
                         player.call("updateHud", [player.name, mp.players.length, player.data.money, player.data.bankmoney]);
-                        getPlayerByName(targetName).call("updateHud", [player.name, mp.players.length, player.data.money, player.data.bankmoney]);
+                        target_player.call("updateHud", [target_player.name, mp.players.length, target_player.data.money, target_player.data.bankmoney]);
                     }
                 });
             }
+            gm.mysql.handle.query(`INSERT INTO bank_transactions (from_player, to_player, amount) VALUES ('${player.name}', '${target_player}', ${amm});`);
         });
 
     } else {
         player.outputChatBox(`Nu s-a găsit niciun jucător cu numele ${targetName}.`);
     }
+});
+
+mp.events.addCommand('q', ( player ) => {
+    player.kick('You left the server');
 });

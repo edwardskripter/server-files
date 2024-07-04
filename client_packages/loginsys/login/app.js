@@ -1,4 +1,4 @@
-mp.events.add("openLogin", ( name ) => {
+mp.events.add("openLogin", (  ) => {
 
     mp.gui.cursor.show(true, true);
 });

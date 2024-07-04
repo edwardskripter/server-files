@@ -1,11 +1,13 @@
 require('login.js');
 require('./loginsys/login/app.js');
+require('./loginsys/register/app.js');
 require('./bank/assets/js/app');
 require('./base/blips.js');
 require('./admin/noclip.js');
 require('./anticheat/index.js');
 require('./hud/interface.js');
 require('./levels/index.js');
+// require('./levels/index.js');
 mp.gui.chat.show(true);
 mp.gui.chat.activate(false);
 

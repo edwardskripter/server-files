@@ -59,5 +59,13 @@ mp.events.add("playerWeaponChange", (player) => {
 mp.events.add('playerJoin', (player) => {
     player.call('createPlayerHud', [player.name]);
 
-    player.call("openLogin", [player.name]);
+    gm.mysql.handle.query("SELECT username FROM accounts", function (err, res) {
+        if (!err) {
+            if (res[0].username == player.name) {
+                player.call("openLogin", [player.name]);
+            } else {
+                player.call("openRegister", [player.name]);
+            }
+        }
+    })
 });

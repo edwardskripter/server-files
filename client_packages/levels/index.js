@@ -1,22 +1,25 @@
-const hudComponentID = 19;
-const rankBarColor = 116; // HUD_COLOUR_FREEMODE, https://wiki.rage.mp/index.php?title=Fonts_and_Colors
+var ProgressBar = require('progressbar.js');
+var bar = new ProgressBar.Line("#line", {
+    strokeWidth: 4,
+    easing: 'easeInOut',
+    duration: 1400,
+    color: '#FFEA82',
+    trailColor: '#eee',
+    trailWidth: 100,
+    svgStyle: {width: '100%', height: '100%', borderRadius: '10px'}
+});
 
-// credit: https://illusivetea.me/FiveM/scaleforms.html
-mp.events.add("updateRankBar", (limit, nextLimit, previousXP) => {
-    if (!mp.game.graphics.hasHudScaleformLoaded(hudComponentID)) {
-        mp.game.graphics.requestHudScaleform(hudComponentID);
-        while (!mp.game.graphics.hasHudScaleformLoaded(hudComponentID)) mp.game.wait(0);
+let lvlbar;
 
-        mp.game.graphics.pushScaleformMovieFunctionFromHudComponent(hudComponentID, "SET_COLOUR");
-        mp.game.graphics.pushScaleformMovieFunctionParameterInt(rankBarColor);
-        mp.game.graphics.popScaleformMovieFunctionVoid();
+mp.events.add("updateBar", ( level, xp ) => {
+
+    if (!lvlbar) {
+        lvlbar = mp.browsers.new("package://levels/index.html");
     }
 
-    mp.game.graphics.pushScaleformMovieFunctionFromHudComponent(hudComponentID, "SET_RANK_SCORES");
-    mp.game.graphics.pushScaleformMovieFunctionParameterInt(limit);
-    mp.game.graphics.pushScaleformMovieFunctionParameterInt(nextLimit);
-    mp.game.graphics.pushScaleformMovieFunctionParameterInt(previousXP);
-    mp.game.graphics.pushScaleformMovieFunctionParameterInt(mp.players.local.getVariable("currentXP"));
-    mp.game.graphics.pushScaleformMovieFunctionParameterInt(mp.players.local.getVariable("currentLevel"));
-    mp.game.graphics.popScaleformMovieFunctionVoid();
-});
+    xp = (300*(level-1)/2)+xp;
+
+    barHTML.execute(`$("#level).text(${level});`)
+    barHTML.execute(`$("#xp).text(${xp});`)
+    bar.animate(`0.${xp}`);
+}); 

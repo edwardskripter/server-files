@@ -48,7 +48,7 @@ body{
 }
 .registerbody .item label {
     position: absolute;
-    font-size: 1.3vw;
+    font-size: 0.7vw;
     color: rgba(177, 177, 177, 0.681);
     padding: 0 2%;
     pointer-events: none;
@@ -68,13 +68,15 @@ body{
     backdrop-filter: blur(25px);
     outline: none;
     border-radius: 5px;
+    padding-top: 2%;
 }
+
 
 .registerbody .item input:focus~label,
 .registerbody .item input:valid~label {
-    margin-bottom: 1.8%;
+    margin-bottom: 1.6%;
     margin-left: -1.4%;
-    font-size: .8vw;
+    font-size: .7vw;
 }
 
 .registerbody button{
@@ -98,4 +100,10 @@ body{
 .registerbody button:hover{
     background-color: white;
     color: black;
+}
+
+.active{
+    margin-bottom: 1.8%;
+    margin-left: -1.4%;
+    font-size: .7vw;
 }

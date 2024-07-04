@@ -19,6 +19,7 @@
   "dependencies": {
     "bcrypt": "^5.1.1",
     "bcrypt-nodejs": "0.0.3",
-    "mysql": "^2.15.0"
+    "mysql": "^2.15.0",
+    "progressbar.js": "^1.1.1"
   }
 }

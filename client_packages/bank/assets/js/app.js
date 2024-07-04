@@ -28,11 +28,58 @@ function closeSecondMenu() {
 let bank = null;
 let plname = null;
 
-mp.events.add("openBank", ( money, bankmoney, name ) => {
+mp.events.add("openBank", ( money, bankmoney, name, bank_transactions ) => {
 
     if (!bank) {
         bank = mp.browsers.new("package://bank/index.html");
     }
+
+    let bank_transaction_element = ""
+
+    bank_transactions.forEach(transaction => {
+        let amountClass;
+        let amountIcon;
+        let amountSign;
+        let amountColor;
+
+        if (transaction.to_player == 'deposit') {
+            amountClass = 'btn-outline-success'
+            amountIcon = 'fa-arrow-up' 
+            amountSign = '+'
+            amountColor = 'text-success text-gradient'
+        } else if (transaction.to_player == 'extrage') {
+            amountClass = 'btn-outline-danger'
+            amountIcon = 'fa-arrow-down'
+            amountSign = '-'
+            amountColor = 'text-danger text-gradient'
+        } else {
+            amountClass = 'btn-outline-danger'
+            amountIcon = 'fa-arrow-down'
+            amountSign = '-'
+            amountColor = 'text-danger text-gradient'
+        }
+
+        bank_transaction_element += `
+            <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+                <div class="d-flex align-items-center">
+                    <button class="btn btn-icon-only btn-rounded ${amountClass} mb-0 me-3 btn-sm d-flex align-items-center justify-content-center">
+                        <i class="fas ${amountIcon}"></i>
+                    </button>
+                    <div class="d-flex flex-column">
+                        <h6 class="mb-1 text-dark text-sm">${transaction.to_player}</h6>
+                        <span class="text-xs">${new Date(transaction.timestamp).toLocaleString()}</span>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center ${amountColor} text-sm font-weight-bold">
+                    ${amountSign} $ ${transaction.amount}
+                </div>
+            </li>
+        `;
+    })
+
+    let bank_transaction_element_jsoned = JSON.stringify(bank_transaction_element);
+
+    bank.execute(`$('#bank-transactions-list').html(${bank_transaction_element_jsoned});`);
 
     bank.execute(`$('#playerName').val('${name}');`);
     
