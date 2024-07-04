@@ -1,38 +1,44 @@
 mp.events.addCommand('setmoney', (player, num) => {
-    if(!num || isNaN(num)) return player.outputChatBox(`${player.data.money}`);
-    gm.mysql.handle.query('UPDATE `accounts` SET money = ? WHERE username = ?', [num, player.name], function(err, res){
-        if(!err){
-            player.data.money = num;
-            player.outputChatBox("Money Updated");
-            player.call("updateHud", [player.name, mp.players.length, player.data.money, player.data.bankmoney]);
-        } else {
-            console.log(err)
-        }
-    });
+    if (player.data.admin >= 6) {
+        if(!num || isNaN(num)) return player.outputChatBox(`${player.data.money}`);
+        gm.mysql.handle.query('UPDATE `accounts` SET money = ? WHERE username = ?', [num, player.name], function(err, res){
+            if(!err){
+                player.data.money = num;
+                player.outputChatBox("Money Updated");
+                player.call("updateHud", [player.name, mp.players.length, player.data.money, player.data.bankmoney]);
+            } else {
+                console.log(err)
+            }
+        });
+    }
 });
 
 mp.events.addCommand('sethealth', (player, health) => {
-    if(!health || isNaN(health)) return player.outputChatBox('SYNTAX: /sethealth [amount]');
-    gm.mysql.handle.query('UPDATE `accounts` SET health = ? WHERE username = ?', [health, player.name], function(err, res){
-        if(!err){
-            player.health = parseInt(health);
-            player.outputChatBox("Health Updated");
-        } else {
-            console.log(err)
-        }
-    });
+    if (player.data.admin >=3) {
+        if(!health || isNaN(health)) return player.outputChatBox('SYNTAX: /sethealth [amount]');
+        gm.mysql.handle.query('UPDATE `accounts` SET health = ? WHERE username = ?', [health, player.name], function(err, res){
+            if(!err){
+                player.health = parseInt(health);
+                player.outputChatBox("Health Updated");
+            } else {
+                console.log(err)
+            }
+        });        
+    }
 });
 
 mp.events.addCommand('setarmour', (player, armour) => {
-    if(!armour || isNaN(armour)) return player.outputChatBox('SYNTAX: /setarmour [amount]');
-    gm.mysql.handle.query('UPDATE `accounts` SET armour = ? WHERE username = ?', [armour, player.name], function(err, res){
-        if(!err){
-            player.armour = parseInt(armour);
-            player.outputChatBox("Armour Updated");
-        } else {
-            console.log(err)
-        }
-    });
+    if (player.data.admin >= 3) {
+        if(!armour || isNaN(armour)) return player.outputChatBox('SYNTAX: /setarmour [amount]');
+        gm.mysql.handle.query('UPDATE `accounts` SET armour = ? WHERE username = ?', [armour, player.name], function(err, res){
+            if(!err){
+                player.armour = parseInt(armour);
+                player.outputChatBox("Armour Updated");
+            } else {
+                console.log(err)
+            }
+        });
+    }
 });
 
 mp.events.addCommand('stats', (player) => {
@@ -66,7 +72,7 @@ mp.events.addCommand("clearchat", (player) => {
 });
 
 mp.events.addCommand("veh", (player, arg) => {
-    if (player.data.admin >= 1) {
+    if (player.data.admin < 0) {
          if (!arg) {
             player.outputChatBox("/veh [name]");
             return;

@@ -8,9 +8,11 @@ module.exports =
         player.armour = 0;
         player.xp = 0;
         player.level = 1;
+        player.skin = "a_m_y_beachvesp_01";
         player.loggedInAs = player.name;
         player.call("updateHud", [player.name, mp.players.length, player.data.money, player.data.bankmoney]);
         player.call("updateBar", [player.level, player.xp]);
+        player.model = mp.joaat(player.skin);
     },
     saveAccount: function(player){
         gm.mysql.handle.query('UPDATE `accounts` SET money = ?, posX = ?, posY = ?, posZ = ?, health = ?, armour = ? WHERE username = ?', [player.data.money, player.position.x.toFixed(2), player.position.y.toFixed(2), player.position.z.toFixed(2), player.health, player.armour, player.name], function(err, res, row){
@@ -31,9 +33,11 @@ module.exports =
                     player.armour = playerData.armour;
                     player.xp = playerData.xp;
                     player.level = playerData.level;
+                    player.skin = playerData.skin;
                     player.loggedInAs = playerData.username;
                     player.call("updateHud", [player.name, mp.players.length, player.data.money, player.data.bankmoney]);
                     player.call("updateBar", [player.level, player.xp]);
+                    player.model = mp.joaat(player.skin);
                 });
             }
         });

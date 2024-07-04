@@ -61,7 +61,9 @@ mp.events.add('playerJoin', (player) => {
 
     gm.mysql.handle.query("SELECT username FROM accounts", function (err, res) {
         if (!err) {
+            console.log("sal")
             if (res[0].username == player.name) {
+                console.log('ajuns')
                 player.call("openLogin", [player.name]);
             } else {
                 player.call("openRegister", [player.name]);
