@@ -9,6 +9,9 @@ function LoadAC() {
 }
 
 mp.events.add('server:CheatDetection', (player,flag) => {
+    if ( player.data.admin >= 1 ) {
+        return;
+    }
     if(flag=='Unallowed Weapon') {
       player.ban()
     }

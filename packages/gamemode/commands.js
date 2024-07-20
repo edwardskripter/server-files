@@ -310,11 +310,3 @@ mp.events.addCommand('setxp', ( player, xp) => {
         player.outputChatBox('You need at least admin level 3');
     }
 })
-
-mp.events.addCommand('textui', ( player ) => {
-    player.call("showTextUI", ["E", "Pentru a deschide banca"]);
-});
-
-mp.events.add('openATM', () => {
-
-})
