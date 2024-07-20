@@ -180,7 +180,7 @@ mp.events.addCommand('kill', (player, _, targetName) => {
     }
 });
 
-mp.events.addCommand("bank", ( player ) => {
+mp.events.add("openBankMenu", ( player ) => {
     let bank_transactions = []
     let select_query = `SELECT * FROM bank_transactions WHERE from_player = '${player.name}'`
     gm.mysql.handle.query(select_query, function (err, res) {
@@ -309,4 +309,12 @@ mp.events.addCommand('setxp', ( player, xp) => {
     } else {
         player.outputChatBox('You need at least admin level 3');
     }
+})
+
+mp.events.addCommand('textui', ( player ) => {
+    player.call("showTextUI", ["E", "Pentru a deschide banca"]);
+});
+
+mp.events.add('openATM', () => {
+
 })

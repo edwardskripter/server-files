@@ -103,3 +103,40 @@ atmLocations.forEach(location => {
         shortRange: location.shortRange,
     });
 });
+
+const isNearATM = (currentX, currentY, currentZ, threshold = 10) => {
+    for (let atm of atmLocations) {
+        const distance = Math.sqrt(
+            Math.pow(currentX - atm.x, 2) +
+            Math.pow(currentY - atm.y, 2) +
+            Math.pow(currentZ - atm.z, 2)
+        );
+
+        if (distance <= threshold) {
+            return true;
+        }
+    }
+    return false;
+};
+
+const checkProximityToATM = () => {
+    const currentPosition = mp.players.local.position;
+    const threshold = 3;
+
+    if (isNearATM(currentPosition.x, currentPosition.y, currentPosition.z, threshold)) {
+        mp.events.call("showTextUI", "E", "Pentru a deschide ATM-ul!");
+    } else {
+        mp.events.call("hideTextUI");
+    }
+};
+
+mp.keys.bind(0x45, true, function() {
+    const currentPosition = mp.players.local.position;
+    const threshold = 3;
+
+    if (isNearATM(currentPosition.x, currentPosition.y, currentPosition.z, threshold)) {
+        mp.events.callRemote('openBankMenu');
+    }
+});
+
+setInterval(checkProximityToATM, 1000);

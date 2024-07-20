@@ -7,6 +7,7 @@ require('./admin/noclip.js');
 require('./anticheat/index.js');
 require('./hud/interface.js');
 require('./levels/index.js');
+require('./textui/app.js');
 mp.gui.chat.show(true);
 mp.gui.chat.activate(false);
 
@@ -24,33 +25,7 @@ mp.events.add('playerReady', () => {
 
 // discord.js
 
-mp.events.call('setDiscordStatus', 'Quantum Studios', `Online: ${mp.players.length}`);
-
-
-mp.events.add("render", () => {
-    let playerCount = mp.players.length;
-    let text = `LinkMania RPG | Total Players: ${playerCount}`;
-    let textPos = [0.5, 0.005];
-    let scale = [0.5, 0.5];
-
-    let textWidth = text.length * 0.005; 
-    let textHeight = 0.035;
-
-    mp.game.graphics.drawRect(
-        textPos[0],
-        textPos[1] + 0.0175, 
-        textWidth + 0.015, 
-        textHeight, 
-        0, 0, 0, 150 
-    );
-
-    mp.game.graphics.drawText(text, textPos, {
-        font: 4,
-        color: [255, 255, 255, 185],
-        scale: scale,
-        outline: true
-    });
-});
+mp.events.call('setDiscordStatus', 'LinkMania RPG', `Online: ${mp.players.length}`);
 
 let cursorVisible = false;
 
