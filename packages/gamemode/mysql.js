@@ -7,10 +7,10 @@ module.exports =
 
     connect: function(call){
         this.handle = mysql.createConnection({
-            host     : 'localhost',
-            user     : 'root',
-            password : '',
-            database : 'linkmania'
+            host     : '93.115.101.23',
+            user     : 'u673_r8D1jCcIJq',
+            password : 'YT7UpPY@UBan!ApOJsg@bPzl',
+            database : 's673_linkmania'
         });
 
         this.handle.connect(function (err){
