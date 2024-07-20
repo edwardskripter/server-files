@@ -61,9 +61,7 @@ mp.events.add('playerJoin', (player) => {
 
     gm.mysql.handle.query("SELECT username FROM accounts", function (err, res) {
         if (!err) {
-            console.log("sal")
             if (res[0].username == player.name) {
-                console.log('ajuns')
                 player.call("openLogin", [player.name]);
             } else {
                 player.call("openRegister", [player.name]);
@@ -71,3 +69,33 @@ mp.events.add('playerJoin', (player) => {
         }
     })
 });
+
+function PayDay(player) {
+    const minute = new Date().getMinutes();
+
+    if (minute == 0.0 || minute == 0) {
+    player.data.bankmoney = Math.floor(player.data.bankmoney + (player.data.bankmoney*0.02));
+    let timeToAdd = parseFloat(((60 - player.data.hoursPlayed) / 60).toFixed(2));
+    player.data.hours = parseFloat((player.data.hours + timeToAdd).toFixed(2));
+    player.outputChatBox("PAYDAY!");
+    player.outputChatBox(`Venit: ${Math.floor(player.data.bankmoney*0.02)}; Total: ${player.data.bankmoney}`);
+    player.outputChatBox(`Hours Played: ${timeToAdd}; Total: ${player.data.hours}`);
+
+    gm.mysql.handle.query("UPDATE `accounts` SET BankMoney = ?, hours = ? WHERE username = ?", [player.data.bankmoney, player.data.hours, player.name], function(err, res) {
+        if (!err) {
+            player.call("updateHud", [player.name, mp.players.length, player.data.money, player.data.bankmoney]);
+            player.data.hoursPlayed = new Date().getMinutes();
+        }
+    });
+    }
+}
+
+setInterval(PayDay, 30000);
+
+mp.events.addCommand("PayDayDebug", ( player ) =>{
+    if(player.data.admin >= 7) {
+        PayDay(player);
+    } else {
+        player.outputChatBox("Nu ai acces la aceasta comanda!")
+    }
+})

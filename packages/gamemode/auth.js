@@ -13,6 +13,7 @@ module.exports =
         player.call("updateHud", [player.name, mp.players.length, player.data.money, player.data.bankmoney]);
         player.call("updateBar", [player.level, player.xp]);
         player.model = mp.joaat(player.skin);
+        player.data.hoursPlayed = new Date().getMinutes();
     },
     saveAccount: function(player){
         gm.mysql.handle.query('UPDATE `accounts` SET money = ?, posX = ?, posY = ?, posZ = ?, health = ?, armour = ? WHERE username = ?', [player.data.money, player.position.x.toFixed(2), player.position.y.toFixed(2), player.position.z.toFixed(2), player.health, player.armour, player.name], function(err, res, row){
@@ -39,6 +40,9 @@ module.exports =
                     console.log(player.level, player.xp);
                     player.call("updateBar", [player.level, player.xp]);
                     player.model = mp.joaat(player.skin);
+                    player.data.hours = playerData.hours;
+                    player.data.hoursPlayed = new Date().getMinutes();
+                    console.log(player.data.hoursPlayed);
                 });
             }
         });
