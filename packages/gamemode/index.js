@@ -73,7 +73,7 @@ mp.events.add('playerJoin', (player) => {
 function PayDay(player) {
     const minute = new Date().getMinutes();
 
-    if (minute == 0.0 || minute == 0) {
+    if (minute == 0) {
     player.data.bankmoney = Math.floor(player.data.bankmoney + (player.data.bankmoney*0.02));
     let timeToAdd = parseFloat(((60 - player.data.hoursPlayed) / 60).toFixed(2));
     player.data.hours = parseFloat((player.data.hours + timeToAdd).toFixed(2));
@@ -90,7 +90,11 @@ function PayDay(player) {
     }
 }
 
-setInterval(PayDay, 30000);
+setInterval(() => {
+    mp.players.forEach(player => {
+        PayDay(player);
+    });
+}, 60000);
 
 mp.events.addCommand("PayDayDebug", ( player ) =>{
     if(player.data.admin >= 7) {
@@ -99,3 +103,22 @@ mp.events.addCommand("PayDayDebug", ( player ) =>{
         player.outputChatBox("Nu ai acces la aceasta comanda!")
     }
 })
+
+mp.events.add('playerEnterVehicle', (player, vehicle, seat) => {
+    console.log("L")
+
+    // if (vehicle.getClass() == 13) {
+    //     return;
+    // } else {
+        console.log("L")
+        if (seat == 0) {
+            console.log("L")
+            if (player.data.car_lic == 0) {
+                console.log("L")
+                player.removeFromVehicle();
+                player.notify(`Nu ai permis de conducere si ai fost scos din vehicul.`);
+                return;
+            }
+        }
+    // }
+});

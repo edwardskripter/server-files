@@ -1,0 +1,782 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+@import url("https://fonts.cdnfonts.com/css/arial");
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  overflow: hidden !important;
+  width: 100%;
+  height: 100%;
+  /* background-size: cover; */
+  user-select: none;
+  /* background: rgba(0, 0, 0, 0.415); */
+}
+
+.cont_prima_pagina {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #f0f2fa;;
+  background-size: cover;
+}
+
+.header_page {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 3.594vw;
+  flex-shrink: 0;
+  background: #fff;
+}
+.header_page .right_side {
+  width: 3.438vw;
+  height: 3.438vw;
+  position: absolute;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header_page .right_side img {
+  width: 3.438vw;
+}
+.header_page .left_side {
+  position: absolute;
+  left: 0;
+  width: 3.906vw;
+  height: 3.594vw;
+  flex-shrink: 0;
+  border: 0.052vw solid #d7dae3;
+
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header_page .cont_header h1 {
+  color: #6d768e;
+  font-family: Inter;
+  font-size: 1.094vw;
+  font-style: italic;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.022vw;
+}
+
+.header_page .cont_header {
+  width: 46.875vw;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header_page .cont_header .timp_box {
+  width: 9.375vw;
+  height: 100%;
+  border-right: 0.052vw solid var(--dgpci-mai-gov-ro-mischka, #d6dae4);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--dgpci-mai-gov-ro-fiord, #454e68);
+  text-align: center;
+
+  font-family: Arial;
+  font-size: 1.563vw;
+  font-style: normal;
+  font-weight: 400;
+}
+.header_page .cont_header .box_intreb p {
+  color: var(--dgpci-mai-gov-ro-fiord, #454e68);
+  text-align: center;
+  font-family: Arial;
+  font-size: 0.99vw;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.header_page .cont_header .box_intreb span {
+  color: var(--dgpci-mai-gov-ro-fiord, #454e68);
+  text-align: center;
+  font-family: Arial;
+  font-size: 0.781vw;
+  font-style: normal;
+  font-weight: 400;
+}
+.header_page .cont_header .box_intreb {
+  display: flex;
+  width: 9.375vw;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.26vw;
+  border-right: 0.052vw solid #d6dae4;
+  border-left: 0.052vw solid #d6dae4;
+}
+.header_page .left_side img {
+  width: 2.552vw;
+}
+
+.cont_prima_pagina .cont_page {
+  width: 100%;
+  /* background: blue; */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.cont_prima_pagina .cont_page h1 {
+  color: #454e68;
+  font-family: Inter;
+  font-size: 1.823vw;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.073vw;
+  margin-bottom: 1.823vw;
+}
+
+.cont_prima_pagina .cont_page .cont_categori {
+  width: 16.927vw;
+  height: 2.708vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.604vw;
+}
+
+.cont_prima_pagina .cont_page .cont_categori .categori {
+  height: 100% !important;
+  display: flex;
+  padding-left: 0.938vw;
+  padding-right: 0.938vw;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2.604vw;
+  color: #454e68;
+  white-space: nowrap;
+  font-family: "Inter";
+  font-size: 0.781vw;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0.023vw;
+  border: 0.156vw solid #065693;
+  transition: 0.5s;
+}
+
+.categori_selected {
+  background: #065693 !important;
+  color: #fff !important;
+}
+
+.cont_prima_pagina .cont_page .captcha_cont {
+  width: 14.063vw;
+  height: 3.958vw;
+  flex-shrink: 0;
+  border-radius: 0.156vw;
+  margin-bottom: 1.823vw;
+  border: 0.052vw solid #d3d3d3;
+
+  background: #f9f9f9;
+
+  box-shadow: 0vw 0vw 0.208vw 0.052vw rgba(0, 0, 0, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 0.677vw;
+  padding-left: 0.677vw;
+}
+
+.cont_prima_pagina .cont_page .captcha_cont .left_side {
+  width: 6.521vw;
+  height: 1.458vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cont_prima_pagina .cont_page .captcha_cont .left_side h2 {
+  color: #000;
+  font-family: Roboto;
+  font-size: 0.729vw;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.cont_prima_pagina .cont_page .captcha_cont .left_side i {
+  font-size: 1.458vw;
+  color: #c1c1c1;
+}
+
+.cont_prima_pagina .cont_page .captcha_cont .right_side {
+  width: 5.045vw;
+  height: 3.021vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.cont_prima_pagina .cont_page .captcha_cont .right_side img {
+  width: 1.667vw;
+  margin-right: 0.625vw;
+  margin-bottom: 0.26vw;
+}
+
+.cont_prima_pagina .cont_page .captcha_cont .right_side p {
+  color: #555;
+
+  text-align: center;
+  font-family: Roboto;
+  font-size: 0.521vw;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 0.521vw; /* 100% */
+}
+
+.cont_prima_pagina .cont_page .captcha_cont .right_side span {
+  color: #555;
+  text-align: right;
+  font-family: Roboto;
+  font-size: 0.417vw;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.cont_prima_pagina .cont_page button {
+  display: flex;
+  width: 14.301vw;
+  height: 5.53vw;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.26vw;
+  background: #065693;
+
+  box-shadow: 0.052vw 0.677vw 0.729vw -0.417vw rgba(6, 49, 82, 0.56);
+  margin-bottom: 1.042vw;
+  border: none;
+  color: #fff;
+
+  text-align: center;
+  font-family: "Fira Sans";
+  font-size: 1.198vw;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.797vw; /* 150% */
+  cursor: pointer;
+  letter-spacing: 0.26vw;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+
+.cont_prima_pagina .cont_page button i {
+  margin-left: 0.26vw;
+  transition: 0.3s;
+}
+
+.cont_prima_pagina .cont_page button:hover i{
+  margin-left: 0.7vw;
+}
+
+#captcha_box {
+  transition: 0.5s;
+}
+
+.cont_adoua_pagina {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #f0f2fa;
+}
+
+.cont_adoua_pagina .cont_page {
+  width: 100%;
+  /* background: blue; */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.cont_adoua_pagina .cont_page h1 {
+  color: #454e68;
+  text-align: center;
+  font-family: "Arial";
+  font-size: 1.823vw;
+  font-style: normal;
+  font-weight: 400;
+  margin-bottom: 1.25vw;
+}
+
+.cont_adoua_pagina .cont_page p {
+  width: 31.25vw;
+  color: #6d768e;
+  text-align: center;
+  font-family: "Arial";
+  font-size: 1.302vw;
+  font-style: normal;
+  font-weight: 400;
+  margin-bottom: 1.667vw;
+}
+
+.cont_adoua_pagina .cont_page img {
+  width: 7.031vw;
+  margin-bottom: 1.146vw;
+}
+
+.cont_adoua_pagina .cont_page span {
+  color: #454e68;
+  text-align: center;
+  font-family: "Arial";
+  font-size: 0.99vw;
+  font-style: normal;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-bottom: 2.396vw;
+}
+
+.cont_adoua_pagina .cont_page .linie {
+  width: 31.25vw;
+  height: 0.104vw;
+  background: #d6dae4;
+  border-radius: 0.521vw;
+  margin-bottom: 1.042vw;
+}
+
+.cont_atreia_pagina {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #f0f2fa;
+}
+
+.cont_atreia_pagina .cont_page {
+  width: 100%;
+  /* background: blue; */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.cont_atreia_pagina .cont_page .cont_examinare {
+  width: 19.223vw;
+  height: 9.427vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.083vw;
+  margin-bottom: 3.75vw;
+  border-radius: 0.26vw;
+  border: 0.052vw solid #c7c9d7;
+  background: #fff;
+}
+
+.cont_atreia_pagina .cont_page .cont_examinare h1 {
+  display: flex;
+  width: 100%;
+  height: 3.203vw;
+  justify-content: center;
+  align-items: center;
+  color: #6d768e;
+  text-align: center;
+  font-family: Arial;
+  font-size: 0.781vw;
+  font-style: normal;
+  font-weight: 400;
+  text-transform: uppercase;
+  background: #dde0e8;
+}
+
+.cont_atreia_pagina .cont_page .cont_examinare p {
+  color: #065693;
+  text-align: center;
+  font-family: Arial;
+  font-size: 2.083vw;
+  font-style: normal;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.cont_atreia_pagina .cont_page button {
+  display: flex;
+  width: 14.301vw;
+  height: 5.53vw;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.26vw;
+  background: #065693;
+
+  box-shadow: 0.052vw 0.677vw 0.729vw -0.417vw rgba(6, 49, 82, 0.56);
+  margin-bottom: 4.167vw;
+  border: none;
+  color: #fff;
+
+  text-align: center;
+  font-family: "Fira Sans";
+  font-size: 1.198vw;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.797vw; /* 150% */
+  cursor: pointer;
+  letter-spacing: 0.26vw;
+  text-transform: uppercase;
+}
+
+.cont_atreia_pagina .cont_page button i {
+  margin-left: 0.26vw;
+}
+
+.cont_atreia_pagina .cont_page span {
+  width: 20.803vw;
+  height: 1.042vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #454e68;
+
+  text-align: center;
+  font-family: Arial;
+  font-size: 1.042vw;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.cont_atreia_pagina .cont_page spani {
+  font-size: 0.938vw;
+}
+
+.cont_acomodare_pagina {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #f0f2fa;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+.cont_acomodare_pagina .bottom_acomodare {
+  width: 100%;
+  height: 6.198vw;
+  flex-shrink: 0;
+  border: 0.052vw solid #d7dae3;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cont_acomodare_pagina .bottom_acomodare button {
+  width: 13.542vw;
+  height: 4.063vw;
+  margin-left: 0.781vw;
+  margin-right: 0.781vw;
+  border-radius: 0.26vw;
+}
+
+.cont_acomodare_pagina .bottom_acomodare .later {
+  border: 0.052vw solid #d7dae3;
+
+  background: #fff;
+  color: #454e68;
+  font-family: Inter;
+  font-size: 0.885vw;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.018vw;
+}
+
+.cont_acomodare_pagina .bottom_acomodare .modifica {
+  border: 0.052vw solid #d7dae3;
+
+  background: #fff;
+  color: #cf0000;
+  font-family: Inter;
+  font-size: 0.885vw;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.018vw;
+}
+
+.cont_acomodare_pagina .bottom_acomodare .trimite {
+  border: 0.052vw solid #68b15f;
+
+  background: #68b15f;
+  font-family: Inter;
+  color: #fff;
+  font-size: 0.885vw;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.018vw;
+}
+
+.acomodation {
+  width: 23.49vw !important;
+  height: 38.563vw !important;
+}
+.acomodation .cont-intrebari {
+  height: 100% !important;
+}
+
+.acomodation .cont-intrebari .left_side23 {
+  height: 94% !important;
+}
+.tip2 {
+  width: 57.813vw !important;
+  height: 28.698vw !important;
+}
+.tip1 {
+  width: 57.813vw !important;
+  height: 28.698vw !important;
+}
+.tip2 .cont-intrebari {
+  height: 21.771vw !important;
+}
+.tip1 .cont-intrebari .intrebare_acom {
+  width: 100% !important;
+}
+.cont_acomodare_pagina .tip2 .cont-intrebari {
+  flex-direction: row !important;
+}
+
+.tip1 .cont-intrebari .left_side23 {
+  height: 82% !important;
+}
+.cont_acomodare_pagina .cont_page {
+  width: 23.49vw;
+  height: 41.563vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cont_acomodare_pagina .cont_page h1 {
+  color: #6d768e;
+  font-family: Inter;
+  font-size: 1.563vw;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.cont_acomodare_pagina .cont_page {
+  width: 100%;
+  height: 36.927vw;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cont_acomodare_pagina .cont_page .cont-intrebari {
+  width: 100%;
+  height: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cont_acomodare_pagina .cont_page .cont-intrebari .left_side23 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cont_acomodare_pagina .cont_page .cont-intrebari .intrebare_acom {
+  width: 23.438vw;
+  height: 6.563vw;
+  flex-shrink: 0;
+  border-radius: 0.26vw;
+  border: 0.052vw solid #c7c9d7;
+  transition: 0.6s;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.cont_acomodare_pagina .cont_page .cont-intrebari .intrebare_acom .left_side {
+  width: 4.688vw;
+  height: 100%;
+  flex-shrink: 0;
+  border-radius: 0.208vw 0vw 0vw 0.208vw;
+  background: #dde0e8;
+  transition: 0.6s;
+
+  display: flex;
+  text-transform: uppercase;
+  justify-content: center;
+  align-items: center;
+  color: #454e68;
+  font-family: Inter;
+  font-size: 1.875vw;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.cont_acomodare_pagina .cont_page .cont-intrebari .intrebare_acom p {
+  margin-left: 1.51vw;
+  color: #454e68;
+  font-family: Inter;
+  font-size: 0.938vw;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.selected_question {
+  box-shadow: inset 0vw 0.365vw 0.365vw 0vw rgba(198, 152, 9, 0.37) !important;
+  background-color: #fee38c !important;
+}
+.selected_question .left_side {
+  box-shadow: inset 0vw 0.365vw 0.365vw 0vw rgba(198, 152, 9, 0.37) !important;
+  background-color: #f9cb3c !important;
+}
+
+.cont_dabaeala_pagina {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #f0f2fa;
+}
+
+.cont_dabaeala_pagina .cont_page {
+  width: 100%;
+  /* background: blue; */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.cont_dabaeala_pagina .cont_page h1 {
+  margin-bottom: 1.25vw;
+  color: var(--dgpci-mai-gov-ro-fiord, #454e68);
+  text-align: center;
+
+  font-family: Arial;
+  font-size: 1.823vw;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.cont_dabaeala_pagina .cont_page p {
+  width: 23.438vw;
+  color: var(--dgpci-mai-gov-ro-slate-gray, #6d768e);
+  text-align: center;
+
+  /* dgpci.mai.gov.ro/Arial/Narrow 25 */
+  font-family: Arial;
+  font-size: 0.938vw;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.156vw;
+  margin-bottom: 1.667vw;
+}
+
+.cont_dabaeala_pagina .cont_page button {
+  display: flex;
+  width: 14.301vw;
+  height: 5.53vw;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.26vw;
+  background: #065693;
+
+  box-shadow: 0.052vw 0.677vw 0.729vw -0.417vw rgba(6, 49, 82, 0.56);
+  margin-bottom: 4.167vw;
+  border: none;
+  color: #fff;
+
+  text-align: center;
+  font-family: "Fira Sans";
+  font-size: 1.198vw;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.797vw; /* 150% */
+  cursor: pointer;
+  letter-spacing: 0.26vw;
+  text-transform: uppercase;
+}
+
+.cont_dabaeala_pagina .cont_page button i {
+  margin-left: 0.26vw;
+}
+
+.cont_final_pagina {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #f0f2fa;
+}
+
+.cont_final_pagina .cont_page {
+  width: 100%;
+  /* background: blue; */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.cont_final_pagina .cont_page i {
+  font-size: 4.896vw;
+  color: #a52525;
+  margin-bottom: 2.5vw;
+}
+
+.cont_final_pagina .cont_page p {
+  color: #a52525;
+  text-align: center;
+
+  font-family: Arial;
+  font-size: 1.823vw;
+  font-style: normal;
+  font-weight: 400;
+  margin-bottom: 3.125vw;
+}
+.later,
+.modifica,
+.trimite {
+  transition: 0.4s;
+}
+.later:active,
+.modifica:active,
+.trimite:active {
+  transform: scale(0.7);
+}

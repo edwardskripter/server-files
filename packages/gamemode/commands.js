@@ -310,3 +310,156 @@ mp.events.addCommand('setxp', ( player, xp) => {
         player.outputChatBox('You need at least admin level 3');
     }
 })
+
+mp.events.addCommand("fv", ( player ) => {
+    if (player.data.admin >= 1) {
+        player.vehicle.repair();
+    } else {
+        player.outputChatBox("Nu ai acces la aceasta comanda!");
+    }
+})
+
+const dmvLocations = [
+    { x: 557.5933, y: -62.2520, z: 70.5162-1 },
+    { x: 505.7320, y: -127.6730, z: 59.4135-1 },
+    { x: 426.1516, y: -128.7500, z: 64.0816-1 },
+    { x: 507.4420, y: 55.9309, z: 95.1566-1 },
+    { x: 569.0297, y: 225.9816, z: 102.4096-1 },
+    { x: 765.8732, y: 155.1530, z: 80.3849-1 },
+    { x: 700.3885, y: 36.0374, z: 83.6503-1 },
+    { x: 534.2980, y: -26.1227, z: 70.1228-1 }
+];
+
+let dmvCheckPoint = 0;
+let dmvActive = false;
+let dmvVehicle = null;
+let dmvPlayer = null;
+let dmvInterval = null;
+let ck = null;
+
+function getDistance(v1, v2) {
+    return Math.sqrt(
+        Math.pow(v2.x - v1.x, 2) +
+        Math.pow(v2.y - v1.y, 2) +
+        Math.pow(v2.z - v1.z, 2)
+    );
+}
+
+mp.events.add("testpractic", (player) => {
+    player.data.car_lic == 1;
+
+    if (dmvActive) {
+        player.outputChatBox("Un test de conducere este deja în curs!");
+        return;
+    }
+
+    dmvVehicle = mp.vehicles.new(mp.joaat("dilettante"), new mp.Vector3(529.8536, -28.0549, 70.6295), {
+        numberPlate: "DMV",
+        color: [[255, 0, 0], [255, 0, 0]]
+    });
+
+    if (dmvVehicle) {
+        player.putIntoVehicle(dmvVehicle, 0);
+        dmvActive = true;
+        dmvPlayer = player;
+        dmvCheckPoint = 0;
+        player.outputChatBox("Testul de conducere a început. Urmează punctele de control!");
+        giveDMVCheckPoint();
+    } else {
+        player.outputChatBox("Eroare la crearea vehiculului. Încearcă din nou.");
+    }
+});
+
+mp.events.add("playerStartExitVehicle", (player) => {
+    if (dmvActive && player === dmvPlayer) {
+        player.outputChatBox("Nu poți ieși din vehicul în timpul testului de conducere!");
+        player.putIntoVehicle(dmvVehicle, 0);
+    }
+});
+
+function giveDMVCheckPoint() {
+    if (!dmvActive || !dmvPlayer || dmvCheckPoint >= dmvLocations.length) {
+        if (dmvInterval) {
+            endDMVTest();
+            clearInterval(dmvInterval);
+            dmvInterval = null;
+        }
+        dmvActive = false;
+        if (dmvPlayer) {
+            dmvPlayer.outputChatBox("Testul de conducere s-a încheiat.");
+        }
+        dmvPlayer = null;
+        return;
+    }
+
+    let location = dmvLocations[dmvCheckPoint];
+    if (dmvCheckPoint >= 7 ) {
+        ck = mp.checkpoints.new(1, new mp.Vector3(location.x, location.y, location.z), 3, {
+            color: [255, 255, 255, 255],
+            visible: true,
+            dimension: 0
+        });
+    } else{
+        ck = mp.checkpoints.new(1, new mp.Vector3(location.x, location.y, location.z), 3, {
+            direction: new mp.Vector3(dmvLocations[dmvCheckPoint+1].x, dmvLocations[dmvCheckPoint+1].y, dmvLocations[dmvCheckPoint+1].z),
+            color: [255, 255, 255, 255],
+            visible: true,
+            dimension: 0
+        });
+    }
+
+    if (dmvInterval) {
+        clearInterval(dmvInterval);
+    }
+
+    dmvInterval = setInterval(() => {
+        if (!dmvActive || !dmvPlayer || dmvCheckPoint >= dmvLocations.length) {
+            endDMVTest();
+            clearInterval(dmvInterval);
+            dmvInterval = null;
+            return;
+        }
+
+        const playerPos = dmvPlayer.position;
+        const checkpointPos = new mp.Vector3(location.x, location.y, location.z);
+        const distance = getDistance(playerPos, checkpointPos);
+
+        if (distance < 3) {
+            ck.destroy();
+
+            dmvCheckPoint++;
+            console.log("Player reached checkpoint:", dmvCheckPoint);
+            giveDMVCheckPoint();
+        }
+    }, 1);
+}
+
+function endDMVTest() {
+    if (dmvInterval) {
+        clearInterval(dmvInterval);
+        dmvInterval = null;
+    }
+    
+    if (dmvVehicle) {
+        dmvVehicle.destroy();
+        dmvVehicle = null;
+    }
+    
+
+    if (dmvPlayer) {
+        dmvPlayer.outputChatBox("Testul de conducere s-a încheiat.");
+        dmvPlayer = null;
+    }
+
+    dmvActive = false;
+    dmvCheckPoint = 0;
+}
+
+mp.events.addCommand("exam", ( player ) => {
+    if( player.data.car_lic == 1 ) {
+        player.outputChatBox("Ai deja permisul!");
+        return;
+    }
+
+    player.call("startDMV");
+})

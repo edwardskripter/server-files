@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)https://dainty-halva-76d831.netlify.app/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./index_files/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="./index_files/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="./index_files/style.css">
+
+        <link href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" rel="stylesheet" type="text/css">
+    <link href="https://use.fontawesome.com/releases/v6.1.1/css/all.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.materialdesignicons.com/5.9.55/css/materialdesignicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <div class="cont_prima_pagina hideelement">
+
+        <div class="cont_page">
+            <div class="cont_header">
+                <h1>Bine ati venit la examenul auto!</h1>
+            </div>
+            <button class="start_button3" >START <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+
+    </div>
+
+
+    <div class="cont_acomodare_pagina hideelement" style="display: none;">
+        <div class="header_page">
+
+            <div id="cont_header" class="cont_header">
+
+            </div>
+
+        </div>
+
+        <div id="curpage_acomodare" class="cont_page tip2">
+            <h1>1 + 1 = ?</h1>
+            <div class="cont-intrebari">
+                <div class="left_side23">
+                    <div class="intrebare_acom" data-acomodarecorrct="true">
+                        <div class="left_side"> 
+                            A
+                        </div>
+                        <p>2</p>
+                    </div>
+                    <div class="intrebare_acom" data-acomodarecorrct="false">
+                        <div class="left_side">
+                            B
+                        </div>
+                        <p>2</p>
+                    </div>
+                    <div class="intrebare_acom" data-acomodarecorrct="false">
+                        <div class="left_side">
+                            C
+                        </div>
+                        <p>2</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="bottom_acomodare">
+
+            <div class="cont_butoane">
+                <button class="modifica" onclick="fadala('modify_answer')">
+                    <i class="fa-solid fa-circle-xmark"></i> Modifica Raspunsul
+                </button>
+                <button class="trimite" onclick="fadala('send_answer')">
+                    <i class="fa-solid fa-circle-check"></i> Trimite Raspunsul
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="cont_dabaeala_pagina hideelement" style="display: none;">
+        <div class="header_page">
+
+            <div class="cont_header">
+                <h1>Atentie, Incepe examenul! </h1>
+            </div>
+
+        </div>
+
+        <div class="cont_page">
+            <h1>Ai raspuns corect la <span id="intrebcorcte"></span> intrebari</h1>
+            <p id="cevr"></p>
+            <button class="start_button" onclick="start_chest(4)">TERMINA <i class="fa-solid fa-arrow-right"></i></button>
+
+
+        </div>
+    </div>
+
+
+
+    <div class="cont_final_pagina hideelement" style="display: none;">
+        <div class="header_page">
+
+            <div class="cont_header">
+                <h1>Ne pare rau </h1>
+            </div>
+
+
+        </div>
+
+        <div id="final_dala" class="cont_page">
+            <i class="fa-solid fa-circle-xmark"></i>
+            <p>Testul a luat sfarsit. Ati fost declarat RESPINS la examenul de teorie</p>
+
+
+        </div>
+    </div>
+
+
+
+
+<script src="./index_files/config.js">
+</script>
+<script src="./index_files/index.js">
+</script>
+
+
+</body></html>

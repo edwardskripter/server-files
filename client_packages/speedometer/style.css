@@ -1,0 +1,74 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #333;
+}
+
+#speed-indicator {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    text-align: center;
+}
+
+#speed-indicator svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotate(90deg);
+}
+
+#speed-text {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    color: white;
+    font-weight: bold;
+}
+
+#unit {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 10px;
+    color: white;
+    letter-spacing: 2px;
+}
+
+#gear {
+    position: absolute;
+    top: 15%;
+    right: -25px;
+    width: 30px;
+    height: 30px;
+    background-color: #ffdd00;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+}
+
+#icons {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+    width: 60px;
+}
+
+.icon {
+    font-size: 18px;
+    color: white;
+}

@@ -10,6 +10,7 @@ const blipLocations = [
     { x: 2568.83, y: 293.89, z: 108.73, blip: 110, color: 1, scale: 0.8, shortRange: true, name: 'Gun Shop' },
     { x: -3172.68, y: 1087.10, z: 20.83, blip: 110, color: 1, scale: 0.8, shortRange: true, name: 'Gun Shop' },
     { x: 21.32, y: -1106.44, z: 29.79, blip: 110, color: 1, scale: 0.8, shortRange: true, name: 'Gun Shop' },
+    { x:638.3355102539062, y:1.6916004419326782, z:82.78642272949219, blip: 523, color: 38, scale:0.8, shortRange:true, name:"DMV"},
     // 24/7 Stores
     { x: 25.75, y: -1347.50, z: 29.50, blip: 52, color: 2, scale: 0.8, shortRange: true, name: '24/7 Supermarket' },
     { x: -3038.93, y: 585.95, z: 7.91, blip: 52, color: 2, scale: 0.8, shortRange: true, name: '24/7 Supermarket' },
@@ -136,7 +137,7 @@ mp.keys.bind(0x45, true, function() {
 
     if (isNearATM(currentPosition.x, currentPosition.y, currentPosition.z, threshold)) {
         mp.events.callRemote('openBankMenu');
-    }
+    } 
 });
 
 setInterval(checkProximityToATM, 1000);

@@ -8,6 +8,7 @@ require('./anticheat/index.js');
 require('./hud/interface.js');
 require('./levels/index.js');
 require('./textui/app.js');
+require('./dmv/index_files/index.js');
 mp.gui.chat.show(true);
 mp.gui.chat.activate(false);
 
@@ -73,3 +74,16 @@ setInterval(() => {
         }
     });
 }, 1000);
+
+mp.events.add('playerStartEnterVehicle', (vehicle, seat) => { 
+    if (!vehicle.getIsEngineRunning()) {
+        vehicle.setEngineOn(false, false, true);
+    }
+});
+
+let dmvLabel = mp.labels.new("Foloseste ~y~comanda exam ~w~pentru a incepe testul\nteoretic", new mp.Vector3(638.3355102539062,1.6916004419326782,82.78642272949219),
+    {
+        los: false,
+        font: 2,
+        drawDistance: 5,
+    });

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speed Indicator</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/progressbar.js/1.1.0/progressbar.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <style>
+        #progressbar {
+            width: 100%;
+            height: 10%;
+            border-radius: 10px;
+        }
+        .ui-progressbar {
+            background-color: #eee;
+        }
+        .ui-progressbar-value {
+            background-color: #FFEA82;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="speed-indicator">
+        <div id="progressbar"></div>
+        <div id="speed-text">100</div>
+        <div id="unit">KM/H</div>
+        <div id="gear">
+            <div class="gear-box">
+                <span>1</span>
+            </div>
+        </div>
+        <div id="icons">
+            <div class="icon">🔧</div>
+            <div class="icon">💡</div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

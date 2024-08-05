@@ -3,7 +3,7 @@ module.exports =
     registerAccount: function(player){
         player.data.money = 5000;
         player.data.bankmoney = 15000;
-        player.position = new mp.Vector3(15, 15, 71);   //  Use the same values that are default inside your DB
+        player.position = new mp.Vector3(15, 15, 71);
         player.health = 100;
         player.armour = 0;
         player.xp = 0;
@@ -12,11 +12,12 @@ module.exports =
         player.loggedInAs = player.name;
         player.call("updateHud", [player.name, mp.players.length, player.data.money, player.data.bankmoney]);
         player.call("updateBar", [player.level, player.xp]);
-        player.model = mp.joaat(player.skin);
+        player.model = mp.joaat("a_m_y_beachvesp_01");
         player.data.hoursPlayed = new Date().getMinutes();
+        player.data.car_lic = 0;
     },
     saveAccount: function(player){
-        gm.mysql.handle.query('UPDATE `accounts` SET money = ?, posX = ?, posY = ?, posZ = ?, health = ?, armour = ? WHERE username = ?', [player.data.money, player.position.x.toFixed(2), player.position.y.toFixed(2), player.position.z.toFixed(2), player.health, player.armour, player.name], function(err, res, row){
+        gm.mysql.handle.query('UPDATE `accounts` SET money = ?, posX = ?, posY = ?, posZ = ?, health = ?, armour = ?, car_lic = ? WHERE username = ?', [player.data.money, player.position.x.toFixed(2), player.position.y.toFixed(2), player.position.z.toFixed(2), player.health, player.armour, player.data.car_lic, player.name], function(err, res, row){
             if(err) console.log(err);
         });
     },
@@ -42,7 +43,7 @@ module.exports =
                     player.model = mp.joaat(player.skin);
                     player.data.hours = playerData.hours;
                     player.data.hoursPlayed = new Date().getMinutes();
-                    console.log(player.data.hoursPlayed);
+                    player.data.car_lic = playerData.car_lic;
                 });
             }
         });
